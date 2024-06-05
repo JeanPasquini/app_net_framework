@@ -73,6 +73,14 @@ Infelizmente não disponibilizamos um MongoDB para testes, mas abaixo está o pa
       </Configuracao>
      ```
    - Mude o necessário para que busque o banco criado em MongoDB
+   - Após isso mude a string de conexão dentro da classe `mongoDB`
+   - Exemplo:
+     ```csharp
+      string connectionString = $"mongodb+srv://{username}:{password}@spacecalc.wwq39bs.mongodb.net/?retryWrites=true&w=majority&appName=spacecalc";
+     ```
+
+     ![image](https://github.com/JeanPasquini/SpaceCalc/assets/126198701/3152d4e4-7815-4074-8b12-f38748e7bc7b)
+     `Local: MongoClient GetClient()` Classe - mongoDB
 
 3. **Criando tabelas no MongoDB**
     
