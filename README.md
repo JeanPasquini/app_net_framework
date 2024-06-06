@@ -18,6 +18,25 @@ O SpaceCalc oferece duas versões que se distinguem pela simplicidade e funciona
   
 ---
 
+# Preview 👁️‍🗨️
+
+![image](https://github.com/JeanPasquini/SpaceCalc/assets/126198701/0efb8841-4319-4182-a07a-b35c5303cadf)
+
+## Screenshots
+
+Para visualizar mais detalhes e exemplos do SpaceCalc, confira as imagens disponíveis no diretório de Screenshots. Lá, você encontrará exemplos detalhados que abrangem diversas áreas do software. Veja os exemplos abaixo do que você pode encontrar lá:
+
+- Tela de Login,
+- Atualização Automática,
+- Permissões de Super Usuário,
+- Configuração MongoDB,
+- Uso de Bibliotecas,
+- Configurações do Aplicativo,
+- Sobre SpaceCalc,
+- Mais...
+  
+---
+
 # Implementação 
 
 Atualmente, não há um método de implementação com suporte disponível. Para integrar o sistema, por favor, entre em contato com um dos nossos colaboradores do software SpaceCalc.
