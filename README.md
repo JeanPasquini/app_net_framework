@@ -1,176 +1,86 @@
-# SpaceCalc 📌
+# Connection_NET 📌
 
-A SpaceCalc é uma solução open source ([Contribuições](#contribuições)) voltada para pequenos comércios, negócios locais e varejistas, oferecendo recursos essenciais de gestão para setores comerciais e industriais. Além disso, o sistema inclui uma robusta administração de regras e permissões, possibilitando a designação de um super usuário para cada implementação do sistema.
+Connection_NET is a project designed to showcase my skills in mastering the .NET Framework, using it in a semi-real project environment to handle scenarios involving dynamic permission management. This approach simplifies project security and management while also enabling seamless integration of new features and collaboration with team members.
 
-Este software utiliza do banco de dados MongoDB, mas estamos planejando disponibilizar suporte para SQL Server em futuras atualizações. Todas as tabelas e estruturas de banco de dados estão detalhadamente documentadas na seção de [Implementação](#implementação), para facilitar o entendimento e a integração.
+## Versions
+The project will continue to evolve, with updates bringing new functionalities that reflect my growing capabilities. Each release will be documented with the release date to track progress effectively.
 
-## Versões
-O SpaceCalc oferece duas versões que se distinguem pela simplicidade e funcionalidades do software:
+### Release - v2024.10.09.1 🔷
 
-### SpaceCalc - PRO (Gratuito) 🔷
+- Implementation of data storage using a local database (no further updates planned for this).
+- Security management on specific functionality buttons.
+- Creation of user accounts with unique properties.
 
-- Garante a implementação de regras e segurança do sistema, proporcionando tranquilidade aos usuários.
-- Permite a criação e gerenciamento de usuários com diferentes níveis de acesso, promovendo controle e personalização.
-
-### SpaceCalc - Tool (Gratuito)🔹
-- Focado na simplicidade para realizar tarefas de forma eficiente, agilizando o fluxo de trabalho.
-- Acessível a qualquer membro da equipe sem a necessidade de criar usuários individuais, o que simplifica o uso e colaboração.
-  
 ---
 
 # Preview 👁️‍🗨️
 
-![image](https://github.com/JeanPasquini/SpaceCalc/assets/126198701/0efb8841-4319-4182-a07a-b35c5303cadf)
-
-## Screenshots
-
-Para visualizar mais detalhes e exemplos do SpaceCalc, confira as imagens disponíveis no diretório de Screenshots. Lá, você encontrará exemplos detalhados que abrangem diversas áreas do software. Veja os exemplos abaixo do que você pode encontrar lá:
-
-- Tela de Login,
-- Atualização Automática,
-- Permissões de Super Usuário,
-- Configuração MongoDB,
-- Uso de Bibliotecas,
-- Configurações do Aplicativo,
-- Sobre SpaceCalc,
-- Mais...
-  
----
-
-# Implementação 
-
-Atualmente, não há um método de implementação com suporte disponível. Para integrar o sistema, por favor, entre em contato com um dos nossos colaboradores do software SpaceCalc.
+![Preview](https://github.com/user-attachments/assets/27c52d0c-2a60-422f-8681-dc943f450c7c)
 
 ---
+# Implementation 🚩
 
-# Contribuições
+Currently, the application operates using only local databases, and the required queries to set up all necessary data are included within the application itself. Please follow these steps to get started:
 
-Estamos felizes em receber contribuições da comunidade para melhorar este projeto. Há várias maneiras de contribuir, desde a correção de bugs até o desenvolvimento de novos recursos. Antes de começar, por favor, leia as seguintes diretrizes:
+## Requirements
 
-## Como Contribuir 💁
+- Database: SQL Server
+- SQL Express - localhost
+- .NET 4.8.2 or higher (If you are using Windows 8 or above, you can ignore this requirement)
 
-1. **Encontrou um bug?** 
+## Step-by-Step Guide
 
-   - Antes de reportar, verifique se o bug já foi relatado. Se ainda não foi, abra uma nova issue descrevendo o problema e como reproduzi-lo.
+1. Open the application and click on the configuration menu near the login button.
+2. In the newly opened tab, click the button responsible for downloading the database and wait for your SQL Server to load.
+3. Log in manually to your local database to properly execute the query.
+4. The SQL Server will display the query with all the data needed to use the application; execute the query and wait for it to complete.
+5. The query includes two predefined users for the application: admin and user, both with the password '1234'.
+6. Enjoy exploring the application.
 
-2. **Deseja implementar uma nova funcionalidade?**
-
-   - Abra uma nova issue explicando a funcionalidade desejada e discuta sua proposta com os mantenedores do projeto.
-
-3. **Tem outra ideia?**
-
-   - Fique à vontade para propor novas ideias ou melhorias. Abra uma issue para iniciar a discussão.
-
-## Contribuições por códigos
-
-Para começar vamos realizar procedimentos para que tudo ocorra dentro dos padrões de SpaceCalc:
-
-   - Faça um fork deste repositório /ou qual deseja fazer atualização (vPRO ou vTool).
-   - Crie uma nova branch para sua contribuição: `git checkout -b minha-contribuicao`
-
-Infelizmente não disponibilizamos um MongoDB para testes, mas abaixo está o passo passo para inserir seu DB em nosso software:
-
-1. **Criar um DB no site da Mongo**
-
-   - Acesse o link: https://www.mongodb.com/
-   - Crie uma conta caso necessário
-   - Em MongoDB Atlas crie sua Cluster para armazenar os dados de SpaceCalc
-
-2. **Configurando arquivo config.xml**
-
-   - Abra o arquivo 'config.xml' dentro da debug na raiz do projeto.
-   - Edite em um bloco de notas ou em um editor de textos.
-     ```xml
-     <?xml version="1.0" encoding="utf-8" ?>
-      <Configuracao>
-        <MongoDB>
-          <username>"username"</username>
-          <password>"senha"</password>
-          <databasename>"nomedobanco"</databasename>
-          <authsource>admin</authsource>
-        </MongoDB>
-      </Configuracao>
-     ```
-   - Mude o necessário para que busque o banco criado em MongoDB
-   - Após isso mude a string de conexão dentro da classe `mongoDB`
-   - Exemplo:
-     ```csharp
-      string connectionString = $"mongodb+srv://{username}:{password}@spacecalc.wwq39bs.mongodb.net/?retryWrites=true&w=majority&appName=spacecalc";
-     ```
-
-     ![image](https://github.com/JeanPasquini/SpaceCalc/assets/126198701/3152d4e4-7815-4074-8b12-f38748e7bc7b)
-     `Local: MongoClient GetClient()` Classe - mongoDB
-
-3. **Criando tabelas no MongoDB**
-    
-   - Abra a query na pasta raiz do projeto para realizar a criação das tabelas (mongoDB.js)
-   - Execute o Script usando `mongosh` e visualize no Compass
-   - Exemplo caso usuário deseje criar sua própria coleção:
-     ```js
-      use 'meuBancoDeDados';
-      
-      db.createCollection("ZUSUARIO");
-     ```
-     
-    3.1. **Alternativa de criação de tabelas no MongoDB**
-
-     - Abra no Mongo seu banco de dados e acesse a área de coleções
-     - Crie todas tabelas existentes dentro do script contido no projeto (mongoDB.js)
-
-    3.2. **Usuário administrador**
-
-     - Crie um super usuário para logar durante os testes de seu desenvolvimento.
-       ```js
-         use 'meuBancoDeDados'
-         db.minhaColecao.insertMany([
-              {
-                  USUARIO: "user",
-                  SENHA: "1234",
-                  NOMECOMPLETO: "seunomecompleto",
-                  EMAIL: "seuemail@hotmail.com",
-                  IDSETOR: "1"
-              }
-         ]);
-       ```
-
-4. **Utilize da classe mongoDB**
-
-   - A classe `mongoDB` agiliza os processos CRUD `(create / read / update / delete)`
-   - Qualquer alteração nesses processos requer uma explicação clara e com exemplos no projeto.
-
-5. **Postagem PR (Pull Request)**
-   
-   - Após terminar suas alterações e commit: `git commit -am 'Adicionei uma nova funcionalidade'`
-   - Faça push para a branch: `git push origin minha-contribuicao`
-   - Envie um pull request descrevendo suas alterações e aguarde o feedback.
-
-6. **Medidas**
-   
-   - OBSERVAÇÃO: DETALHES NUNCA SÃO DEMAIS, ENRIQUEÇA O PULL REQUEST PARA QUE SEJA FUTURAMENTE EMERGIADO.
-   - NOTAS: SEMPRE OBSERVE SE JÁ NÃO EXISTE ALGUMA ATUALIZAÇÃO RELACIONADO AO SEU DESENVOLVIMENTO.
-   - REGRAS: CRIE EXEMPLOS (ATÉ 2) QUE FAÇAM USO DE SUA INTEGRAÇÃO, SE POSSÍVEL GRAVAR UM VÍDEO E DEIXAR NO REPOSITÓRIO PARA ANÁLISE DOS CONTRIBUIDORES.
+![howToDownloadDB](https://github.com/user-attachments/assets/d1f51690-e908-47de-af60-2cfc864fc7a7)
 
 ---
 
-# Recursos 📚
+# Contributions
 
-SpaceCalc expressa sua gratidão pelas bibliotecas vizinhas, que desempenham um papel essencial na administração e otimização de parte significativa de nossos processos. O suporte e a colaboração contínua dessas instituições são fundamentais para o nosso progresso.
+We welcome contributions from the community to enhance this project. There are several ways to contribute, ranging from fixing bugs to developing new features. Before getting started, please review the following guidelines:
+
+## How to Contribute 💁
+
+1. **Found a bug?**
+
+   - Before reporting, please check if the issue has already been addressed. If not, open a new issue describing the problem and steps to reproduce it.
+
+2. **Want to implement a new feature?**
+
+   - Open a new issue explaining the desired feature and discuss your proposal with the project maintainers.
+
+3. **Have another idea?**
+
+   - Feel free to suggest new ideas or improvements. Open an issue to start the discussion.
+
+## Code Contributions
+
+To begin, follow the procedures to ensure your contributions adhere to the standards:
+
+   - Fork this repository.
+   - Create a new branch for your contribution: `git checkout -b my-contribution`
+
+4. **Submit a Pull Request (PR)**
+
+   - After completing your changes, commit them with: `git commit -am 'Added a new feature'`
+   - Push to your branch: `git push origin my-contribution`
+   - Submit a pull request describing your changes and wait for feedback.
+
+5. **Guidelines**
+
+   - NOTE: DETAILS ARE ESSENTIAL; MAKE YOUR PULL REQUEST AS INFORMATIVE AS POSSIBLE.
+   - REMINDER: ALWAYS CHECK IF THERE ARE ANY EXISTING UPDATES RELATED TO YOUR WORK, UNLESS YOUR UPDATE PRESENTS A DIFFERENT APPROACH TO ACHIEVING THE SAME FUNCTIONALITY.
+   - RULES: CREATE EXAMPLES (UP TO 2) THAT DEMONSTRATE THE USE OF YOUR INTEGRATION. IF POSSIBLE, RECORD A VIDEO AND ADD IT TO THE REPOSITORY FOR REVIEW.
+
+---
 
 ## NuGets
 
-   - Biblioteca AWSSDK - https://github.com/aws/aws-sdk-net/
-   - Biblioteca DnsClient - https://dnsclient.michaco.net/
-   - Biblioteca Krypton.Toolkit - https://github.com/Krypton-Suite/Standard-Toolkit
-   - Biblioteca Krypton - https://github.com/ComponentFactory/Krypton
-   - Biblioteca MongoDB.Bson - https://www.mongodb.com/docs/drivers/csharp/current/
-   - Biblioteca MongoDB.Driver - https://www.mongodb.com/docs/drivers/csharp/current/
-   - Biblioteca MongoDB.Driver.Core - https://www.mongodb.com/docs/drivers/csharp/current/
-   - Biblioteca MongoDB.Libmongocrypt - https://www.mongodb.com/docs/drivers/csharp/current/
-
----
-
-# Apoie-nos 💖
-
-Apoie SpaceCalc! dependemos do apoio e da generosidade de pessoas como você para continuar inovando e proporcionando soluções de qualidade. Se você acredita na nossa missão e gostaria de contribuir para o avanço de nossos projetos, considere seguir nosso repositório e compartilhar para próximos. Sua participação é fundamental para o crescimento e sucesso da nossa comunidade. Juntos, podemos levar SpaceCalc a novos patamares! 
-
-Obrigado pelo seu apoio e deixe sua ⭐!
+   - Krypton Toolkit Library - https://github.com/Krypton-Suite/Standard-Toolkit
+   - Krypton Library - https://github.com/ComponentFactory/Krypton
