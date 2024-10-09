@@ -91,10 +91,10 @@
             this.linkLabel1.LinkVisited = true;
             this.linkLabel1.Location = new System.Drawing.Point(6, 131);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(268, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(319, 16);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://github.com/JeanPasquini/SpaceCalc";
+            this.linkLabel1.Text = "https://github.com/JeanPasquini/app_net_framework";
             // 
             // btnSalvarBase
             // 
