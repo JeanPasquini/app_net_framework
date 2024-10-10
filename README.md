@@ -5,7 +5,7 @@ Connection_NET is a project designed to showcase my skills in mastering the .NET
 ## Versions
 The project will continue to evolve, with updates bringing new functionalities that reflect my growing capabilities. Each release will be documented with the release date to track progress effectively.
 
-### Release - v2024.10.09.1 🔷
+### Release - v1.0.9049.13975 🔷
 
 - Implementation of data storage using a local database (no further updates planned for this).
 - Security management on specific functionality buttons.
