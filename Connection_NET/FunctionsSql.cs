@@ -15,8 +15,6 @@ namespace ControleOP
 {
     class FunctionsSql
     {
-        public static string sql { get; set; }
-
         public static string ConnectionString()
         {
             try
@@ -25,10 +23,10 @@ namespace ControleOP
             }
             catch (Exception ex)
             {
-                if (ex.Message.StartsWith("Não foi possível localizar o arquivo"))
+                if (ex.Message.StartsWith("Unable to locate file"))
                 {
                     Exception err = new Exception(ex.Message, ex);
-                    MessageBox.Show("Ocorreu um erro ao obter a string de conexão: " + err, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred while obtaining the connection string: " + err, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                     throw new Exception(ex.Message, ex);
                 }
@@ -88,7 +86,7 @@ namespace ControleOP
             }
             catch (Exception)
             {
-                MessageBox.Show("Endereço de servidor indisponível ou inexistente. Contate um administrador.", "Erro de servidor.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unavailable or nonexistent server error. Contact an administrator.", "Server error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
